@@ -5,7 +5,8 @@ import "./globals.css";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    const swUrl = new URL("./sw.js", import.meta.url).href;
+    navigator.serviceWorker.register(swUrl).catch(() => {});
   });
 }
 
